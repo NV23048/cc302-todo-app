@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flask To-Do</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h2>✨ My Tasks</h2>
+        
+        <form action="/add" method="POST" class="input-group">
+            <input type="text" name="title" placeholder="Add a new task..." required>
+            <button type="submit">Add</button>
+        </form>
+
+        <div class="task-list">
+            {% for task in tasks %}
+            <div class="task-item">
+                <form action="/edit/{{ task.id }}" method="POST">
+                    <input type="text" name="new_title" value="{{ task.title }}">
+                    <button type="submit" style="padding: 5px 10px; font-size: 0.8rem;">Save</button>
+                </form>
+                
+                <a href="/delete/{{ task.id }}" class="delete-btn" title="Delete Task">&times;</a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,105 @@
+:root {
+    --bg-color: #2d6175;
+    --card-bg: #696767;
+    --text-main: #333;
+    --accent: #8283c5; /* Indigo */
+    --danger: #ef4444;
+    --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-content: center;
+    padding: 50px 20px;
+    margin: 0;
+}
+
+.container {
+    width: 100%;
+    max-width: 450px;
+    background: var(--card-bg);
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+}
+
+h2 {
+    margin-top: 0;
+    color: var(--accent);
+    font-weight: 700;
+}
+
+/* Input Styles */
+.input-group {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 2rem;
+}
+
+input[type="text"] {
+    flex-grow: 1;
+    padding: 10px 15px;
+    border: 2px solid #e2e8f0;
+    border-radius: 8px;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+input[type="text"]:focus {
+    border-color: var(--accent);
+}
+
+button {
+    background-color: var(--accent);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: opacity 0.2s;
+}
+
+button:hover {
+    opacity: 0.9;
+}
+
+/* Task Item Styles */
+.task-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #fafafa;
+    padding: 12px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #eee;
+}
+
+.task-item form {
+    display: flex;
+    flex-grow: 1;
+    gap: 10px;
+}
+
+.task-item input {
+    border: none;
+    background: transparent;
+    font-size: 1rem;
+    width: 100%;
+}
+
+.delete-btn {
+    color: var(--danger);
+    text-decoration: none;
+    font-size: 1.2rem;
+    padding: 0 10px;
+    transition: transform 0.2s;
+}
+
+.delete-btn:hover {
+    transform: scale(1.2);
+}
