@@ -1,1 +1,9 @@
-[]
+[{
+  "id": 1,
+  "title": "Task",
+  "description": "",
+  "priority": "medium",
+  "due_date": "",
+  "status": "todo"
+}
+]
