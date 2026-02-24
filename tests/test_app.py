@@ -1,6 +1,3 @@
-import pytest
-
-
 def test_app_import():
     """
     Basic test: check the Flask app can be imported.
