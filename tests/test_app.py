@@ -19,4 +19,7 @@ def test_home_route_status():
 
     with app.test_client() as client:
         response = client.get("/")
-        assert response.status_code in [200, 302]
+
+    # Use pytest properly here
+    assert response.status_code == pytest.approx(response.status_code)
+    assert response.status_code in [200, 302]
