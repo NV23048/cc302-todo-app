@@ -34,6 +34,9 @@ def save_tasks(tasks):
 @app.route('/')
 def index():
     tasks = load_tasks()
+    q = request.args.get('q', '').lower()
+    if q:
+        tasks = [t for t in tasks if q in t['title'].lower() or q in t.get('description', '').lower()]
     return render_template('index.html', tasks=tasks)
 
 @app.route('/add', methods=['POST'])
@@ -64,7 +67,8 @@ def delete(task_id):
     save_tasks(tasks)
     return redirect(url_for('index'))
 
-@app.route('/toggle/<int:task_id>')
+@app.route('/toggle/<i\
+nt:task_id>')
 def toggle(task_id):
     tasks = load_tasks()
     for t in tasks:
@@ -89,4 +93,4 @@ def edit(task_id):
     return redirect(url_for('index'))
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True
