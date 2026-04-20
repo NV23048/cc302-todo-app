@@ -12,6 +12,28 @@
         <form method="GET" action="/" class="input-group">
     <input type="text" name="q" placeholder="Search tasks...">
     <button type="submit">Search</button>
+<form method="GET" action="/" class="input-group">
+<label>Status:</label>
+<select name="status">
+<option value="">All</option>
+<option value="pending">Pending</option>
+<option value="completed">Completed</option>
+</select>
+<label>Priority:</label>
+<select name="priority">
+<option value="">All</option>
+<option value="low">Low</option>
+<option value="medium">Medium</option>
+<option value="high">High</option>
+</select>
+<label>Sort by:</label>
+<select name="sort_by">
+<option value="title">Title</option>
+<option value="priority">Priority</option>
+<option value="due_date">Due Date</option>
+</select>
+<button type="submit">Apply</button>
+</form>
 </form>
 
         

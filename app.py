@@ -37,8 +37,27 @@ def index():
     q = request.args.get('q', '').lower()
     if q:
         tasks = [t for t in tasks if q in t['title'].lower() or q in t.get('description', '').lower()]
+    
+    # Filters
+    status_filter = request.args.get('status')
+    if status_filter:
+        tasks = [t for t in tasks if t.get('status') == status_filter]
+    
+    priority_filter = request.args.get('priority')
+    if priority_filter:
+        tasks = [t for t in tasks if t.get('priority') == priority_filter]
+    
+    # Sorting
+    sort_by = request.args.get('sort_by', 'title')
+    if sort_by == 'title':
+        tasks.sort(key=lambda t: t['title'].lower())
+    elif sort_by == 'priority':
+        priority_order = {'high': 0, 'medium': 1, 'low': 2}
+        tasks.sort(key=lambda t: priority_order.get(t.get('priority', 'medium'), 1))
+    elif sort_by == 'due_date':
+        tasks.sort(key=lambda t: t.get('due_date') or '9999-12-31')
+    
     return render_template('index.html', tasks=tasks)
-
 @app.route('/add', methods=['POST'])
 def add():
     title = request.form.get('title')
