@@ -43,7 +43,6 @@ def delete(task_id):
 def edit(task_id):
     new_title = request.form.get('new_title')
     tasks = load_tasks()
-    for t in tasks:
         if t['id'] == task_id:
             t['title'] = new_title
     save_tasks(tasks)
