@@ -40,9 +40,16 @@
                     <p>Status: {{ task.status }}</p>
 
                     <input type="text" name="new_title" value="{{ task.title }}">
+                    <textarea name="new_description">{{ task.description }}</textarea>
+                    <select name="new_priority">
+                        <option value="low" {% if task.priority == 'low' %}selected{% endif %}>Low</option>
+                        <option value="medium" {% if task.priority == 'medium' %}selected{% endif %}>Medium</option>
+                        <option value="high" {% if task.priority == 'high' %}selected{% endif %}>High</option>
+                    </select>
                     <button type="submit" style="padding: 5px 10px; font-size: 0.8rem;">Save</button>
                 </form>
                 
+                <a href="/toggle/{{ task.id }}" class="toggle-btn" title="Toggle Status">Toggle</a>
                 <a href="/delete/{{ task.id }}" class="delete-btn" title="Delete Task">&times;</a>
             </div>
             {% endfor %}
