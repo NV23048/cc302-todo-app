@@ -21,5 +21,4 @@ def test_home_route_status():
         response = client.get("/")
 
     # Use pytest properly here
-    assert response.status_code == 201
     assert response.status_code in [200, 302]
